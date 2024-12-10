@@ -1,1 +1,24 @@
-{"_default": {"1": {"name": "Gosuslg", "username": "text", "usr_email": "email", "usr_phone": "phone"}, "2": {"name": "yt", "person_name": "text", "person_email": "email"}, "3": {"name": "Sber", "first_name": "text", "last_name": "text", "email": "email", "phone": "phone"}}}
+{
+    "_default": {
+        "1": {
+            "username": "text",
+            "email": "email",
+            "reg_date": "date",
+            "name": "youtube"
+        },
+        "3": {
+            "username": "text",
+            "email": "email",
+            "reg_date": "date",
+            "bio": "text",
+            "status": "text",
+            "phone": "phone",
+            "name": "Sber"
+        },
+        "4": {
+            "username": "text",
+            "phone": "phone",
+            "name": "Gosuslug"
+        }
+    }
+}
