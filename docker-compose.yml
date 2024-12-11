@@ -1,0 +1,5 @@
+services:
+  fastapi-forms:
+    build: src/
+    ports: 
+      - 80:80

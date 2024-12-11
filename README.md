@@ -1,5 +1,24 @@
-## Start project 
+
+### comments
+ 
+В forms.json уже есть несколько паттернов форм для примера, перед запуском можно удалить или продолжить работу. 
+
+Добавил коллекцию POSTAMN с готоыыми примерами, можно удобно и быстро протетсить ;).
+
+Не знаю возможно ли добавить в openapi возможность добавления бесконечного количесвта query params, тестировал с помощью Postman.
+
+Три вспомогательные ручки 
+`GET /patterns` - список всех паттернов, 
+`POST /patterns` - добавление паттаерна,
+ `DELETE /patterns` - удаление всех паттернов. 
+
+Написал автотест с помощью `pytest` на эндпоинт `/get_form`, который сам генерирует форму на основе одного из паттернов из бд и проверяет наличие паттерна в ответе.
+
+---
+
+## Start project local 
 Создание виртуального окружения 
+
 ```bash
 python3 -m venv venv
 ```
@@ -7,18 +26,61 @@ python3 -m venv venv
 ```bash
 source venv/bin/activate
 ```
-Каталог приложения
-```bash 
-cd src/
+
+Установка пакетов
+
 ```
+pip install -r requirements.txt
+```
+
 Запуск приложения
+
 ```bash
-uvicorn app:app --reload 
+uvicorn --app-dir ./src/ app:app --reload 
 ```
 
 **http://127.0.0.1:8000/docs/**
 
---- 
+---
+
+## Start with DOCKER
+
+```bash 
+docker-compose up
+```
+
+---
+## RUN Tests
+
+Создание виртуального окружения 
+
+```bash
+python3 -m venv venv
+```
+
+```bash
+source venv/bin/activate
+```
+
+Установка пакетов
+
+```
+pip install -r requirements.txt
+```
+
+```
+pytest . -vv
+```
+
+---
+## Run Postman collection
+
+при запуске с помощью `docker-compose` изменить порт в url на `80`. 
+1. Выберите Импорт на боковой панели.
+2. Выберите файл `Forms.postman_collection.json` перетащите файл  в окно импорта.
+3. Выбрать коллекцию. 
+4. Запустить тесты коллекции с помощью `runner` или запустить каждый тест отдельно.  
+---
 
 ## Endpoints 
 
@@ -46,11 +108,22 @@ patterns - list of tuples[pattern_name, fields_count]
     ]
 }
 ```
+if pattern not exist 
+
+```
+{
+    "field_name": "one_of_exists_type",
+    "field_name": "one_of_exists_type",
+    "field_name": "one_of_exists_type",
+    "field_name": "one_of_exists_type",
+    "field_name": "one_of_exists_type"
+}
+```
 
 
 ### GET patterns/
 
-response - list of patterns in db 
+response - `list` of patterns in db 
 
 ```json
 [
@@ -67,25 +140,24 @@ response - list of patterns in db
 
 post pattern in db 
 
-body fields 
-* name - srt
-* fields - dict[str, type] 
+PARAMS:
+  `name: srt` 
 
-type can be one of [text, email, phone, date]
+BODY
+    ` dict[field_name: field_type] ` 
+
+`type` can be one of `["text", "email", "phone", "date"]`
 
 body example
 
 ```
 {
-    "name": "PatternName",
-    "fields": {
-        "field_name1": "text",
-        "field_name2": "email",
-        "field_name3": "date",
-        "field_name4": "text",
-        "field_name5": "text", 
-        "field_name6": "phone"
-    }
+    "field_name1": "text",
+    "field_name2": "email",
+    "field_name3": "date",
+    "field_name4": "text",
+    "field_name5": "text", 
+    "field_name6": "phone"
 }
 ```
 

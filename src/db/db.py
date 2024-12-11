@@ -14,7 +14,6 @@ class FormDB:
     ) -> list[tuple[str, int]]:
         forms = cls.db.all()
         matched_forms = []
-
         for f in forms:
             flag = 0
             for field_n, field_t in f.items():
@@ -22,6 +21,8 @@ class FormDB:
                     if form_types.get(field_n) == field_t:
                         pass
                     else:
+                        print(f.get('name'))
+                        print(field_n, field_t, form_types)
                         flag = 1
                         break
             if flag == 0:
@@ -35,3 +36,7 @@ class FormDB:
     @classmethod
     def get_patterns(cls):
         return cls.db.all()
+
+    @classmethod
+    def delete_patterns(cls):
+        return cls.db.drop_tables()

@@ -12,6 +12,9 @@ async def lifespan(app: FastAPI):
     # af stop
 
 
-app = FastAPI(lifespan=lifespan)
+app = FastAPI(
+    lifespan=lifespan,
+    
+)
 
-app.include_router(forms_router)
+app.include_router(forms_router, tags=['Формы'])

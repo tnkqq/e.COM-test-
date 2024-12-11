@@ -1,0 +1,257 @@
+{
+	"info": {
+		"_postman_id": "5e3d79d9-c857-4152-a092-c31d9158abdb",
+		"name": "Forms",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39139775"
+	},
+	"item": [
+		{
+			"name": "Добавление шаблонов",
+			"item": [
+				{
+					"name": "Post Gosuslugi",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "\r\n\r\n{\r\n    \"username\": \"text\",\r\n    \"phone\": \"phone\"\r\n} \r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/patterns?name=Gosuslugi",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"patterns"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Gosuslugi"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post YouTube",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "   \r\n{\r\n    \"username\": \"text\",\r\n    \"email\": \"email\",\r\n    \"reg_date\": \"date\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/patterns?name=YouTube",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"patterns"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "YouTube"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Sber",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"text\",\r\n    \"email\": \"email\",\r\n    \"reg_date\": \"date\",\r\n    \"bio\": \"text\",\r\n    \"status\": \"text\", \r\n    \"phone\": \"phone\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/patterns?name=Sber",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"patterns"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Sber"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Post Avito",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"text\",\r\n    \"email\": \"email\",\r\n    \"reg_date\": \"date\",\r\n    \"bio\": \"text\",\r\n    \"status\": \"text\", \r\n    \"phone\": \"phone\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/patterns?name=Avito",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"patterns"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Avito"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "Примеры паттернов форм."
+		},
+		{
+			"name": "Delete all patterns",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/patterns",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"patterns"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Match Pattern",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/get_form?username=Daniil&phone=+29874567890&email=your@mail.ru&bio=bio text&reg_date=01.07.2004&status=pro",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"get_form"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "Daniil"
+						},
+						{
+							"key": "phone",
+							"value": "+29874567890"
+						},
+						{
+							"key": "email",
+							"value": "your@mail.ru"
+						},
+						{
+							"key": "bio",
+							"value": "bio text"
+						},
+						{
+							"key": "reg_date",
+							"value": "01.07.2004"
+						},
+						{
+							"key": "status",
+							"value": "pro"
+						}
+					]
+				},
+				"description": "Получение шаблонов, которые содержат те же поля того же типа что и форма переданная в параметрах запроса."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Patterns",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "",
+							"value": "",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/patterns",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"patterns"
+					]
+				},
+				"description": "Получение списка всех паттернов."
+			},
+			"response": []
+		}
+	]
+}
